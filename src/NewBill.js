@@ -34,7 +34,7 @@ class NewBill extends React.Component {
                 <td><input className="from-control" name="amount" value={this.state.amount} onChange={this.changeBill}/></td>
                 <td><input className="from-control" name="billStatus" value={this.state.billStatus} onChange={this.changeBill}/></td>
 
-                <td><button className="btn btn-primary" onClick={this.clickAdd}>Add Bill</button></td>
+                <td><button className="btn btn-primary" onClick={this.clickAdd}>Save Bill</button></td>
             </tr>
         );
     }

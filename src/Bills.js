@@ -48,6 +48,8 @@ class Bills extends React.Component {
                 <Alert message={this.state.errorInfo} onClose={this.handleCloseError} />
                 <table class="table">
                     <thead>
+                    <div class="ml-auto">
+                    </div>
                         <tr>
                             <th>Name</th>
                             <th>Surnames</th>
