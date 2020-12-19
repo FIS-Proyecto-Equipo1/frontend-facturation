@@ -1,23 +1,23 @@
 import React from 'react';
-import Contact from './Contact.js';
+import Bill from './Bill.js';
 import Alert from './Alert.js';
-import NewContact from './NewContact.js';
+import NewBill from './NewBill.js';
 
-class Contacts extends React.Component {
+class Bills extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             errorInfo: null,
-            contacts: this.props.contacts
+            bills: this.props.bills
         };
         this.handleEdit = this.handleEdit.bind(this);
         this.handleCloseError = this.handleCloseError.bind(this);
-        this.addContact = this.addContact.bind(this);
+        this.addBill = this.addBill.bind(this);
     }
 
-    handleEdit(contact) {
+    handleEdit(bill) {
         this.setState({
-            errorInfo: contact.name
+            errorInfo: bill.name
         });
     }
     
@@ -27,17 +27,17 @@ class Contacts extends React.Component {
         });
     }
 
-    addContact(contact) {
+    addBill(bill) {
 
         this.setState(prevState => {
-            const contacts = prevState.contacts;
-            if (! contacts.find(c => c.name === contact.name)) {
+            const bills = prevState.bills;
+            if (! bills.find(c => c.name === bill.name)) {
                 return({
-                    contacts: [...prevState.contacts, contact]
+                    bills: [...prevState.bills, bill]
                 });
             }
             return ({
-                errorInfo: 'Contact already exists'
+                errorInfo: 'Bill already exists'
             });
         });
     }
@@ -50,13 +50,16 @@ class Contacts extends React.Component {
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Phone</th>
+                            <th>Surnames</th>
+                            <th>Vehicle</th>
+                            <th>Amount</th>
+                            <th>Bill status</th>
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
-                    <NewContact onAddContact={this.addContact}/>
-                    {this.state.contacts.map((contact) =>
-                        <Contact contact={contact} onEdit={this.handleEdit}/>
+                    <NewBill onAddBill={this.addBill}/>
+                    {this.state.bills.map((bill) =>
+                        <Bill bill={bill} onEdit={this.handleEdit}/>
                     )}
                 </table>
             </div>
@@ -64,4 +67,4 @@ class Contacts extends React.Component {
     }
 }
 
-export default Contacts;
+export default Bills;

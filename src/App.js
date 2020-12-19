@@ -1,20 +1,22 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Contacts from './Contacts.js';
+import Bills from './Bills.js';
 
 function App() {
 
-  const contacts = [
-    {name: "Robert", phone: "6666dd"},
-    {name: 'juan', phone: '33333'}
+  const bills = [
+    {name: "Robert", surnames: "López", vehicle: "Coche", amount: "3,4", billStatus: "PAID"},
+    {name: 'juan', surnames: 'Ramos', vehicle: "Bicicleta", amount: "5,3", billStatus: "UNPAID"},
+    {name: "Robert", surnames: "López", vehicle: "Coche", amount: "3,4", billStatus: "PAID"},
+    {name: 'juan', surnames: 'Ramos', vehicle: "Bicicleta", amount: "5,3", billStatus: "UNPAID"}
 ];
 
 
   return (
    <div>
-      <h1>Hello World</h1>
-      <Contacts contacts={contacts}/>
+      <h1>Backoffice</h1>
+      <Bills bills={bills}/>
     </div>
   );
 }
