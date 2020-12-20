@@ -20,7 +20,7 @@ class NewBill extends React.Component {
     clickAdd() {
         this.props.onAddBill(this.state);
         this.setState({
-            name: '', surnames: '', vehicle: '', amount:'', billStatus:''
+            billNumber:'',name: '', surnames: '', vehicle: '', amount:'', billStatus:''
         });
 
     }
@@ -28,6 +28,7 @@ class NewBill extends React.Component {
     render(){
         return(
             <tr>
+                <td><input className="from-control" name="billNumber" value={this.state.billNumber} onChange={this.changeBill}/></td>
                 <td><input className="from-control" name="name" value={this.state.name} onChange={this.changeBill}/></td>
                 <td><input className="from-control" name="surnames" value={this.state.surnames} onChange={this.changeBill}/></td>
                 <td><input className="from-control" name="vehicle" value={this.state.vehicle} onChange={this.changeBill}/></td>
@@ -35,6 +36,7 @@ class NewBill extends React.Component {
                 <td><input className="from-control" name="billStatus" value={this.state.billStatus} onChange={this.changeBill}/></td>
 
                 <td><button className="btn btn-primary" onClick={this.clickAdd}>Save Bill</button></td>
+                
             </tr>
         );
     }
