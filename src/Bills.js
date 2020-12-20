@@ -21,7 +21,7 @@ class Bills extends React.Component {
 
     handleEdit(bill) {
         this.setState(prevState => ({
-             isEditing: {...prevState.isEditing, [Bill.billStatus]: bill}
+             isEditing: {...prevState.isEditing, [bill.billStatus]: bill}
         }));
     }
 
@@ -51,9 +51,9 @@ class Bills extends React.Component {
             const isEditing = Object.assign({}, prevState.isEditing);
             delete isEditing[billStatus];
 
-            if (bill === bill.billStatus) {
+            if (billStatus !== bill.billStatus) {
                 const bills = prevState.bills;
-                const pos = bills.findIndex(c => c.bill === bill.billStatus);
+                const pos = bills.findIndex(c => c.billStatus !== bill.billStatus);
                 return {
                     bills: [...bills.slice(0,pos), Object.assign({}, bill), ...bills.slice(pos+1)],
                     isEditing: isEditing
@@ -61,7 +61,7 @@ class Bills extends React.Component {
             }
 
             return {
-                errorInfo: "Cannot edit status",
+                errorInfo: "You only can edit status",
             }
 
         });

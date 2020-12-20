@@ -10,8 +10,8 @@ function Bill(props) {
             <td>{props.bill.amount}</td>
             <td>{props.bill.billStatus}</td>
             <td>
-                <button className="btn btn-primary" onClick={() => props.onEdit(props.contact)}>Edit</button>
-                <button className="btn btn-primary" onClick={() => props.onDelete(props.contact)}>Delete</button>
+                <button className="btn btn-primary" onClick={() => props.onEdit(props.bill)}>Edit</button>
+                <button className="btn btn-primary" onClick={() => props.onDelete(props.bill)}>Delete</button>
             </td>
         </tr>
     )
