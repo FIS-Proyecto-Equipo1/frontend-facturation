@@ -1,6 +1,6 @@
 class BillsApi {
     //static API_BASE_URL = "https://fis-2020-bills.herokuapp.com/api/v1";
-    static API_BASE_URL = "http://localhost:3000/api/v1";
+    static API_BASE_URL = "http://localhost:5002/api/v1";
 
     static requestHeaders(){
         return {}
@@ -44,7 +44,7 @@ class BillsApi {
             'Content-Type': 'application/json'
         };
         console.log(bill);
-        return fetch(BillsApi.API_BASE_URL + "/bills/"+bill.billNumber, {
+        return fetch(BillsApi.API_BASE_URL + "/bills/" + bill.billNumber, {
             method: 'PUT',
             headers: headers,
             body: JSON.stringify({
@@ -53,7 +53,8 @@ class BillsApi {
                 surnames: bill.surnames,
                 vehicle: bill.vehicle,
                 amount: bill.amount,
-                status: bill.status   
+                status: bill.status  
+                 
         })}).then(response => {
             console.log(response);
             return response.json();

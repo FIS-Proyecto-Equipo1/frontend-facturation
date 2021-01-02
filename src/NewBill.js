@@ -28,13 +28,25 @@ class NewBill extends React.Component {
     render(){
         return(
             <tr>
-                <td><input className="from-control" name="billNumber" value={this.state.billNumber} onChange={this.changeBill}/></td>
-                <td><input className="from-control" name="name" value={this.state.name} onChange={this.changeBill}/></td>
-                <td><input className="from-control" name="surnames" value={this.state.surnames} onChange={this.changeBill}/></td>
-                <td><input className="from-control" name="vehicle" value={this.state.vehicle} onChange={this.changeBill}/></td>
-                <td><input className="from-control" name="amount" value={this.state.amount} onChange={this.changeBill}/></td>
-                <td><input className="from-control" name="billStatus" value={this.state.billStatus} onChange={this.changeBill}/></td>
-
+                <td><input className="form-control" name="billNumber" value={this.state.billNumber} onChange={this.changeBill}/></td>
+                <td><input className="form-control" name="name" value={this.state.name} onChange={this.changeBill}/></td>
+                <td><input className="form-control" name="surnames" value={this.state.surnames} onChange={this.changeBill}/></td>
+                <td>
+                <select className="form-control" name="vehicle" value={this.state.vehicle} onChange={this.changeBill}>
+                    <option value="">Select vehicle</option>
+                    <option value="CAR">CAR</option> 
+                    <option value="MOTO">MOTO</option>
+                    <option value="MOTO">BIKE</option>  
+                </select>
+                </td>
+                <td><input className="form-control" name="amount" value={this.state.amount} onChange={this.changeBill}/></td>
+                <td>
+                 <select className="form-control" name="billStatus" value={this.state.billStatus} onChange={this.changeBill}>
+                    <option value="">Select status</option>
+                    <option value="PAID">PAID</option> 
+                    <option value="UNPAID">UNPAID</option> 
+                </select>
+                </td>
                 <td><button className="btn btn-primary" onClick={this.clickAdd}>Save Bill</button></td>
                 
             </tr>
