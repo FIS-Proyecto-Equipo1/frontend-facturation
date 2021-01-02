@@ -8,7 +8,7 @@ class BillsApi {
 
     static getAllVehicles(){
         const headers = this.requestHeaders();
-        const request = new Request(VehiculosApi.API_BASE_URL + "/bills", {
+        const request = new Request(BillsApi.API_BASE_URL + "/bills", {
             method: 'GET',
             headers: headers
         });
@@ -54,7 +54,7 @@ class BillsApi {
                 vehicle: bill.vehicle,
                 amount: bill.amount,
                 status: bill.status  
-                 
+
         })}).then(response => {
             console.log(response);
             return response.json();
