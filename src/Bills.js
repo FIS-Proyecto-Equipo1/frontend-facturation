@@ -3,6 +3,9 @@ import Bill from './Bill.js';
 import Alert from './Alert.js';
 import NewBill from './NewBill.js';
 import EditBill from './EditBill.js';
+import BillsApi from './BillsApi.js';
+import axios from 'axios';
+
 
 
 class Bills extends React.Component {
@@ -18,6 +21,19 @@ class Bills extends React.Component {
         this.handleCloseError = this.handleCloseError.bind(this);
         this.addBill = this.addBill.bind(this);
     }
+
+    componentDidMount() {
+        axios.get(BillsApi.API_BASE_URL + "/bills")
+            .then(
+                result => {
+                    const bills = result.data;
+                this.setState({ bills })
+            },(error) => {
+                this.setState({
+                    errorInfo: "Problem with connection to server"
+                })
+            })
+        }
 
     handleEdit(bill) {
         this.setState(prevState => ({
@@ -54,6 +70,7 @@ class Bills extends React.Component {
             if (billStatus !== bill.billStatus) {
                 const bills = prevState.bills;
                 const pos = bills.findIndex(c => c.billStatus !== bill.billStatus);
+                BillsApi.updateBill(bill);
                 return {
                     bills: [...bills.slice(0,pos), Object.assign({}, bill), ...bills.slice(pos+1)],
                     isEditing: isEditing
