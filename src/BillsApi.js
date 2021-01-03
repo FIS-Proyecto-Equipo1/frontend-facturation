@@ -6,7 +6,7 @@ class BillsApi {
         return {}
     }
 
-    static getAllVehicles(){
+    static getAllBills(){
         const headers = this.requestHeaders();
         const request = new Request(BillsApi.API_BASE_URL + "/bills", {
             method: 'GET',
