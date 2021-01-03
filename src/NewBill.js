@@ -34,17 +34,19 @@ class NewBill extends React.Component {
                 <td>
                 <select className="form-control" name="vehicle" value={this.state.vehicle} onChange={this.changeBill}>
                     <option value="">Select vehicle</option>
-                    <option value="CAR">CAR</option> 
-                    <option value="MOTO">MOTO</option>
-                    <option value="MOTO">BIKE</option>  
+                    <option value="coche">coche</option> 
+                    <option value="moto">moto</option>
+                    <option value="bici">bici</option> 
+                    <option value="patín">patín</option>  
+ 
                 </select>
                 </td>
                 <td><input className="form-control" name="amount" value={this.state.amount} onChange={this.changeBill}/></td>
                 <td>
                  <select className="form-control" name="billStatus" value={this.state.billStatus} onChange={this.changeBill}>
                     <option value="">Select status</option>
-                    <option value="PAID">PAID</option> 
-                    <option value="UNPAID">UNPAID</option> 
+                    <option value="pagado">pagado</option> 
+                    <option value="no pagado">no pagado</option> 
                 </select>
                 </td>
                 <td><button className="btn btn-primary" onClick={this.clickAdd}>Save Bill</button></td>

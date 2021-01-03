@@ -5,15 +5,10 @@ import Bills from './Bills.js';
 
 function App() {
 
-  const bills = [
-    {billNumber: "55555", name: "Robert", surnames: "López", vehicle: "Coche", amount: "3,4", billStatus: "PAID"},
-];
-
-
   return (
    <div>
       <h1>Backoffice</h1>
-      <Bills bills={bills}/>
+      <Bills/>
     </div>
   );
 }

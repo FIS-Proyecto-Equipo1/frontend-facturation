@@ -15,8 +15,8 @@ function EditBill(props) {
             <td><input className="form-control" name="amount" value={props.bill.amount}/></td>
             <td>
             <select className="form-control" name="billStatus" value={props.bill.billStatus} onChange={handleChange}>
-                <option value="PAID">PAID</option> 
-                <option value="UNPAID">UNPAID</option> 
+                <option value="pagado">pagado</option> 
+                <option value="no pagado">no pagado</option> 
             </select>
             </td>
             <td>

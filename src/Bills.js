@@ -13,7 +13,7 @@ class Bills extends React.Component {
         super(props);
         this.state = {
             errorInfo: null,
-            bills: this.props.bills,
+            bills: [],
             isEditing: {}
         };
         this.handleEdit = this.handleEdit.bind(this);
@@ -23,11 +23,10 @@ class Bills extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(BillsApi.API_BASE_URL + "/bills")
+        BillsApi.getAllBills() 
             .then(
-                result => {
-                    const bills = result.data;
-                this.setState({ bills })
+                (result) => {
+                this.setState({ bills: result })
             },(error) => {
                 this.setState({
                     errorInfo: "Problem with connection to server"
@@ -114,12 +113,12 @@ class Bills extends React.Component {
                     <div className="ml-auto">
                     </div>
                         <tr>
-                            <th>Bill number</th>
-                            <th>Name</th>
-                            <th>Surnames</th>
-                            <th>Vehicle</th>
-                            <th>Amount</th>
-                            <th>Status</th>
+                            <th>Número de factura</th>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Vehículo</th>
+                            <th>Importe</th>
+                            <th>Estado</th>
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
